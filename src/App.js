@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import GeoMap from 'components/GeoMap'
+import NYStats from 'components/NYStats'
+import {Container, Row, Col, Jumbotron} from 'react-bootstrap'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
+const queryClient = new QueryClient()
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+            <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+    <Container className="vh-100 d-flex justify-content-center align-items-center">
+      <Jumbotron >
+        <Row>
+          <Col className="text-center">
+          <h1>New York State COVID-19 Stats</h1>
+          </Col>
+        </Row>
+      <Row>
+        <Col>
+          <NYStats/>
+        </Col>
+        <Col >
+          <GeoMap />
+        </Col>
+      </Row>
+      </Jumbotron>
+    </Container>
+    </QueryClientProvider>
   );
 }
 
