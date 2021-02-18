@@ -19,8 +19,8 @@ const NYStats = () => {
                 <h2>Total Death:</h2>
                 <h3> <img src={Skull} alt="" className="mw-100 m-1" style={{width: 25}}/><span>{format_num(data.death)}</span></h3>
                 <h2>New Death:</h2>
-               <h3>  <img src={Skull} alt="" className="mw-100 m-1" style={{width: 25}}/> <span>{format_num(data.deathIncrease)}</span> </h3>
-                
+               <h3> <img src={Skull} alt="" className="mw-100 m-1" style={{width: 25}}/> <span>{format_num(data.deathIncrease)}</span> </h3>
+               <p className="mt-5 text-muted"><i>updated on: {data.dateChecked.substring(0, 10)}</i></p>
             </div>
         </div>
     )
